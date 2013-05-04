@@ -1,19 +1,19 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<meta name="viewport" content="width=device-width">
-<meta charset="utf-8">
-<title>Chapter 08</title>
-<!--
-  You need to run this demo from a web server.
-  Use either localhost or your own test environment.
--->
-<style>
-	body { margin: 1em; }
-</style>
+  <meta name="viewport" content="width=device-width">
+  <meta charset="utf-8">
+  <title>Video subtitles - Chapter 08</title>
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+  <style>
+  	body { margin: 1em; }
+  </style>
 </head>
 <body>
-<video src="../assets/bbb.webm" controls height="240" width="360">
+  <div class="alert">
+    <strong>Note:</strong> You need to run this demo from localhost or a web server.
+  </div>
+  <video src="../assets/bbb.webm" controls height="240" width="360">
 	<track kind="subtitles" src="../assets/bbb.vtt" srclang="en" label="English" default>
 	<track kind="subtitles" src="../assets/bbb-alt.vtt" srclang="pt-br" label="Portugues Brasileiro">
 </video>
