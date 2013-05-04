@@ -1,9 +1,11 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<meta charset="utf-8">
-<title></title>
-<style></style>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+  <title>Mustache JS - Chapter 05</title>
+	<link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
 <h1>Example 1</h1>
@@ -22,11 +24,14 @@
 	</ul>
 	</script>
 </div>
-<script src="mustache.js"></script>
+<script src="../libs/mustache.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+	// Shared
+	var jsonFile = '../assets/apes.json';
+	// Example 4
 	var request4 = new XMLHttpRequest();
-	request4.open('GET', 'apes.json', true);
+	request4.open('GET', jsonFile, true);
 	request4.onreadystatechange = function() {
   	if (request4.readyState != 4)  { return; }
   	var data4 = JSON.parse(request4.responseText);
@@ -35,9 +40,9 @@ document.addEventListener('DOMContentLoaded', function() {
   	document.getElementById('ape_area').innerHTML = output4;
 	};
 	request4.send();	
-	// JSON
+	// Example 3
 	var request3 = new XMLHttpRequest();
-	request3.open('GET', 'apes.json', true);
+	request3.open('GET', jsonFile, true);
 	request3.onreadystatechange = function () {
   	if (request3.readyState != 4)  { return; }
   	var data3 = JSON.parse(request3.responseText);
@@ -46,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		document.getElementById('exmpl3').innerHTML = output3;
 	};
 	request3.send();
-	// SECTIONS
+	// Example 2
 	var exmpl2 = {
 		'apes' : [
 			{'name':'Bonobo'},
@@ -58,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	var templApe2 = '{{#apes}}<li>The {{name}} is funny.</li>{{/apes}}';
 	var output2 = Mustache.render(templApe2,exmpl2);
 	document.getElementById('exmpl2').innerHTML = output2;
-	// SIMPLE
+	// Example 1
 	var exmpl1 = {
 		name : 'Bonobo'
 	}
