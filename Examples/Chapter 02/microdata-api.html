@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Microdata API</title>
+</head>
+<body>
+	<p itemscope>Hello I'm <span itemprop="name">Peter</span></p>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var items = document.getItems();
+    console.log('Items',items);
+    console.log(items[0].properties.length + ' Properties',items[0].properties);
+    console.log('Value',items[0].properties[0].itemValue);
+});
+</script>
+</body>
+</html>

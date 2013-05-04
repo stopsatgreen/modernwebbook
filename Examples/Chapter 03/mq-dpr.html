@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+	var msg, dpr = window.devicePixelRatio;
+	if (dpr) {
+		msg = 'devicePixelRatio: ' + dpr;
+	} else {
+		msg = 'Not supported in your browser';
+	}
+	window.alert(msg);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style>
+body { font-size: 10px; }
+.flex {
+	border: 1px solid green;
+	display: flex;
+	height: 100px;
+	margin: 0 auto;
+	width: 500px;
+}
+.flex-a {
+	align-items: stretch;
+	justify-content: space-around;
+}
+.flex-b {
+	align-items: flex-end;
+	justify-content: space-around;
+	border-width: 0 1px;
+}
+.flex-c {
+	align-items: center;
+	justify-content: space-around;
+}
+.flex div {
+	background-color: #ddd;
+	font-size: 500%;
+	line-height: 75px;
+	text-align: center;
+	width: 75px;
+}
+#flex div:nth-child(even) { background-color: #bbb; }
+</style>
+</head>
+<body>
+<div class="flex flex-a">
+	<div>A</div>
+	<div>B</div>
+	<div>C</div>
+</div>
+<div class="flex flex-b">
+	<div>A</div>
+	<div>B</div>
+	<div>C</div>
+</div>
+<div class="flex flex-c">
+	<div>A</div>
+	<div>B</div>
+	<div>C</div>
+</div>
+</body>
+</html>

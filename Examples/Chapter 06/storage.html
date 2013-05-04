@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width">
+<meta charset="utf-8">
+<title></title>
+</head>
+<body>
+	<ul>
+		<li data-ape="chimp"><span class="ape">Chimpanzee</span> <span class="del">X</span></li>
+		<li data-ape="gorilla"><span class="ape">Gorilla</span> <span class="del">X</span></li>
+		<li data-ape="orangutan"><span class="ape">Orangutan</span> <span class="del">X</span></li>
+	</ul>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+	var i,
+			apes = document.querySelectorAll('li'),
+			apesTotal = apes.length;
+	for (i = 0; i < apesTotal; i++) {
+		apes[i].querySelector('.ape').addEventListener('click', function (e) {
+			e.preventDefault();
+			var apeKey = e.currentTarget.parentElement.dataset['ape'],
+					apeVal = e.currentTarget.firstChild.textContent;
+			console.log('Set',apeKey);
+			sessionStorage.setItem(apeKey,apeVal);
+		}, false);
+		apes[i].querySelector('.del').addEventListener('click', function (e) {
+			e.preventDefault();
+			var apeKey = e.currentTarget.parentElement.dataset['ape'];
+			console.log('Remove',apeKey);
+			sessionStorage.removeItem(apeKey);
+		}, false);
+	}
+}, false);
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width>"
+<meta charset="utf-8">
+<title></title>
+<style>
+canvas { border: 1px solid green; }
+</style>
+</head>
+<body>
+<image src="../assets/gorilla-500.jpg">
+<canvas height="500" width="500"></canvas>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+	var el = document.querySelector('canvas');
+		if (el && el.getContext) {
+			var context = el.getContext('2d');
+		if (context) {
+		/* Example 1 */
+			var img = document.querySelector('img');
+			img.addEventListener('load', function () {
+				context.drawImage(img,0,0);
+				var i,
+						newImg = context.getImageData(0,0,500,500),
+						newLen = newImg.data.length;
+            console.log(newImg.data[3]);
+				for (i=0;i<newLen;i+=4) {
+          newImg.data[i] = 255 - newImg.data[i];
+					newImg.data[i+1] = 255 - newImg.data[i+1];
+					newImg.data[i+1] = 255 - newImg.data[i+1];
+				}
+				context.putImageData(newImg,0,0);
+			}, false);
+			//console.log(Newimg);
+		}
+	}
+}, false);
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width">
+<meta charset="utf-8">
+<title></title>
+</head>
+<body>
+	<video autoplay controls></video>
+<script>
+document.addEventListener('DOMContentLoaded',function() {
+  'use strict';
+  navigator.getMedia = (
+    navigator.getUserMedia ||
+    navigator.webkitGetUserMedia ||
+    navigator.mozGetUserMedia ||
+    navigator.msGetUserMedia
+  );
+	function hasGUM () {
+		return !!(navigator.getMedia);
+	}
+  function streamYes(stream) {
+    var video = document.querySelector('video');
+    video.src = window.URL.createObjectURL(stream);
+  }
+  function streamNo(error) {
+    console.log(error);
+  }
+  if (hasGUM()) {
+    navigator.getMedia({video:true}, streamYes, streamNo);
+	} else {
+		console.log('No GUM :(');
+	}
+},false);
+</script>
+</body>
+</html>

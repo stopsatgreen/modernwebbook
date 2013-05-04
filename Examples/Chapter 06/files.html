@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width">
+<meta charset="utf-8">
+<title></title>
+<style>
+#target { height: 200px; outline: 5px dotted gray; width: 200px; }
+</style>
+</head>
+<body>
+	<ul id="target"></ul>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+	'use strict';
+	var target = document.getElementById('target');
+	target.addEventListener('dragover', function (e) {
+		e.stopPropagation();
+		e.preventDefault();
+	}, false);
+	target.addEventListener('drop', function (e) {
+		var files = e.dataTransfer.files,
+				fileNo = files.length;
+		e.stopPropagation();
+		e.preventDefault();
+		var i;
+		for (i = 0; i < fileNo; i++) {
+			var el = document.createElement('li'),
+					smth = document.createTextNode(files[i].name);
+			el.appendChild(smth);
+			e.currentTarget.appendChild(el);
+		}
+	}, false);
+}, false);
+</script>
+</body>
+</html>

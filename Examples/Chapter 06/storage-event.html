@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width">
+<meta charset="utf-8">
+<title></title>
+</head>
+<body>
+	<ul>
+		<li>Chimpanzee</li>
+		<li>Gorilla</li>
+		<li>Orangutan</li>
+	</ul>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+	var i,
+			apes = document.querySelectorAll('li'),
+			apesTotal = apes.length;
+	for (i = 0; i < apesTotal; i++) {
+		apes[i].addEventListener('click', function (e) {
+			e.preventDefault();
+			var apeVal = e.currentTarget.firstChild.textContent;
+			localStorage.setItem('ape',apeVal);
+		}, false);
+	}
+	window.addEventListener('storage', function (e) {
+		var msg = 'Key ' + e.key + ' changed from ' + e.oldValue + ' to ' + e.newValue;
+		console.log(msg);
+	}, false);
+}, false);
+</script>
+</body>
+</html>

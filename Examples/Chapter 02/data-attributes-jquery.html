@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Microdata API</title>
+</head>
+<body>
+	<p data-id="123" data-name="Peter">Gasston</p>
+<script src="../libs/jquery-1.9.1.min.js"></script>
+<script>
+$(document).ready(function(){
+	var el = $('p');
+	console.log('ID:',typeof el.data('id'));
+	console.log('Name:',typeof el.data('name'));
+});
+</script>
+</body>
+</html>

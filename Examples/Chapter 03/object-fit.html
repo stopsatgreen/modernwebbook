@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style>
+	.container { margin: 0 auto; }
+	.container div { background-color: red; float: left; height: 250px; overflow: hidden; width: 32%; }
+	div.middle { margin: 0 2%; }
+	img { height: 100%; width: 100%; }
+	#obj-fill { -o-object-fit: fill; }
+	#obj-contain { -o-object-fit: contain; }
+	#obj-cover { -o-object-fit: cover; }
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div>
+			<img src="../assets/gorilla-400.jpg" id="obj-fill">
+		</div>
+		<div class="middle">
+			<img src="../assets/gorilla-400.jpg" id="obj-contain">
+		</div>
+		<div>
+			<img src="../assets/gorilla-400.jpg" id="obj-cover">
+		</div>
+	</div>
+</body>
+</html>

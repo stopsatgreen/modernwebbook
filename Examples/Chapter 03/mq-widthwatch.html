@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+</head>
+<body>
+<script>
+function tellEm(msg) {
+	window.alert(msg);
+}
+function widthWatch(mql) {
+	var msg;
+	if (mql.matches) {
+		msg = 'at least';
+	} else {
+		msg = 'less than';
+	}
+	tellEm('This viewport is ' + msg + ' 800px wide');
+}
+document.addEventListener('DOMContentLoaded', function() {
+	if (window.matchMedia) {
+		var mql = window.matchMedia('screen and (min-width: 800px)');
+		mql.addListener(widthWatch);
+		widthWatch(mql);
+	} else {
+		tellEm('matchMedia is not supported');
+	}
+});
+</script>
+</body>
+</html>

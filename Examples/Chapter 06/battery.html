@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width">
+<meta charset="utf-8">
+<title></title>
+<link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+<style>
+  body { padding: 1em; }
+  #container { border: 1px solid #999; padding: 1em; text-align: center; width: 50%; }
+  meter { width: 100%; }
+  h2 { margin: 0; }
+</style>
+</head>
+<body>
+  <div id="container">
+    <meter id="battery" low="0.2" high="0.8" optimum="1" value="0.5">0.5</meter>
+    <h2 id="status"></h2>
+  </div>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  'use strict';
+	var el = document.getElementById('status'),
+      meter = document.querySelector('meter'),
+			battery = navigator.battery || navigator.webkitBattery,
+// Check charge status and update h2
+      status = (battery.charging) ? 'Charging' : 'Discharging';
+  el.textContent = status;
+// Get charge level and update meter
+  meter.value = battery.level;
+  meter.textContent = battery.level;
+},false);
+</script>
+</body>
+</html>

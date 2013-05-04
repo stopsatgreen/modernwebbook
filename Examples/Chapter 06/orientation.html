@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width">
+<meta charset="utf-8">
+<title></title>
+</head>
+<body>
+	<ul>
+	<li>X: <span id="x">Null</span></li>
+	<li>Y: <span id="y">Null</span></li>
+	<li>Z: <span id="z">Null</span></li>
+	</ul>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+	var x = document.getElementById('x'),
+			y = document.getElementById('y'),
+			z = document.getElementById('z');
+	window.addEventListener('deviceorientation', function (orientData) {
+		x.textContent = Math.round(orientData.beta);
+		y.textContent = Math.round(orientData.gamma);
+		z.textContent = Math.round(orientData.alpha);
+	}, false);
+},false);
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+</head>
+<body>
+	<button id="trigger">Go full-screen</button>
+	<img id="target" src="../assets/dino.jpg">
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+	var trigger = document.getElementById('trigger'),
+			target = document.getElementById('target');
+	trigger.addEventListener('click', function () {
+		if (target.requestFullscreen) {
+		  target.requestFullscreen();
+		} else if (target.mozRequestFullScreen) {
+		  target.mozRequestFullScreen();
+		} else if (target.webkitRequestFullscreen) {
+		  target.webkitRequestFullscreen();
+		}
+	}, false);
+	document.addEventListener('mozfullscreenchange', function () {
+		if (document.mozFullScreenElement !== null) {
+			document.addEventListener('keydown', function (e) {
+				if (e.keyCode === 13) {
+					document.mozCancelFullScreen();
+				}
+			}, false);
+		}
+	}, false);
+},false);
+</script>
+</body>
+</html>

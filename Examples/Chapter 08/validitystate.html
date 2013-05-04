@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width">
+<meta charset="utf-8">
+<title></title>
+<link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+<style>
+	body { margin: 1em; }
+	label { display: block; }
+	input { margin-bottom: 1em; }
+	input + p { display: inline-block; margin-left: 0.5em; }
+</style>
+</head>
+<body>
+<form>
+	<fieldset>
+		<legend>Constraint Validation</legend>
+		<label for="email">Email</label>
+		<input type="email" id="email" placeholder="Email" autofocus required><p></p>
+		<label for="tel">Telephone</label>
+		<input type="tel" id="tel" placeholder="Numbers only" pattern="\d*" required><p></p>
+	</fieldset>
+	<button type="submit">Submit</button>
+</form>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+	var inputField = document.querySelectorAll('input'),
+			iLen = inputField.length,
+			i;
+	function statusMsg(e) {
+			var valid = e.currentTarget.checkValidity(),
+					validStatus = e.currentTarget.validity,
+					validMsg = e.currentTarget.nextSibling,
+					status;
+			console.log(validStatus);
+			if (valid) {
+				status = '✓';
+			} else {
+				if (validStatus.patternMismatch) {
+					status = 'Pattern mismatch';
+				} else if (validStatus.typeMismatch) {
+					status = 'Type mismatch';
+				} else if (validStatus.valueMissing) {
+					status = 'Value missing';
+				} else {
+					status = 'Unknown error';
+				}
+			}
+			validMsg.textContent = status;
+	}
+	for (i = 0; i < iLen; i++) {
+		inputField[i].addEventListener('input', statusMsg, false);
+	}
+}, false);
+</script>
+</body>
+</html>

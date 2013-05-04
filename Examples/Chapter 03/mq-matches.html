@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+</head>
+<body>
+<script>
+function tellEm(msg) {
+	window.alert(msg)
+}
+document.addEventListener('DOMContentLoaded', function() {
+	if (window.matchMedia) {
+		var msg, mql = window.matchMedia('screen and (min-width: 800px)');
+		if (mql.matches) {
+			msg = 'at least';
+		} else {
+			msg = 'less than';
+		}
+		tellEm('This viewport is ' + msg + ' 800px wide');
+	} else {
+		tellEm('matchMedia is not supported');
+	}
+});
+</script>
+</body>
+</html>

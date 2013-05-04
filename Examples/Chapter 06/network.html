@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width">
+<meta charset="utf-8">
+<title></title>
+<link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+<style>
+  body { padding: 1em; text-align: center; }
+</style>
+</head>
+<body>
+  <h1>Getting Connection...</h1>
+<script>
+document.addEventListener('DOMContentLoaded',function () {
+	'use strict';
+	var status,
+			target = document.querySelector('h1'),
+			connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection,
+			showStatus = function () {
+				status = connection.bandwidth + ' MB/s';
+				if (connection.metered) {
+					status += ' (metered)';
+				}
+				target.textContent = status;
+			};
+	connection.addEventListener('change', showStatus, false);
+	showStatus();
+},false);
+</script>
+</body>
+</html>

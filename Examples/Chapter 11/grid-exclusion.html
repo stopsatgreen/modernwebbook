@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<link rel="stylesheet" href="../../bootstrap/css/bootstrap.css">
+<style>
+body { padding: 1em; }
+#grid {
+	display: -ms-grid;
+	-ms-grid-columns: 1fr 1fr 1fr;
+	-ms-grid-rows: 1fr 1fr;
+	height: 200px;
+	margin: 0 auto;
+	width: 600px;
+}
+#grid div { padding: 1em; }
+.child1 {
+	background-color: #ddd;
+	-ms-grid-column: 2;
+	-ms-grid-column-span: 2;
+	-ms-grid-row-span: 2;
+}
+.child2 {
+	background-color: #aaa;
+	-ms-grid-column-span: 2;
+	-ms-grid-row: 2;
+	-ms-wrap-flow: both;
+	-ms-wrap-margin: 1em;
+}
+</style>
+</head>
+<body>
+<div id="grid">
+	<div class="child1">
+		<p>Once upon a time, a mouse, a bird, and a sausage, entered into partnership and set up house together. For a long time all went well; they lived in great comfort, and prospered so far as to be able to add considerably to their stores. The bird's duty was to fly daily into the wood and bring in fuel.</p>
+	</div>
+	<div class="child2">
+		<p>The mouse fetched the water, and the sausage saw to the cooking. When people are too well off they always begin to long for something new.</p>
+	</div>
+</div>
+</body>
+</html>

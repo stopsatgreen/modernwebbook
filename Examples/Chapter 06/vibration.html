@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width">
+<meta charset="utf-8">
+<title></title>
+</head>
+<body>
+	<button id="trigger">Vibe me, bro!</button>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+	var trigger = document.getElementById('trigger');
+	trigger.addEventListener('touchstart', function () {
+		window.alert('Vibed');
+		window.navigator.vibrate([5000]);
+	}, false);
+	trigger.addEventListener('touchend', function () {
+		window.navigator.vibrate([]);
+	}, false);
+},false);
+</script>
+</body>
+</html>

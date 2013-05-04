@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style></style>
+</head>
+<body>
+<h1>Example 1</h1>
+<h2 id="exmpl1">Fallback</h2>
+<h1>Example 2</h2>
+<ul id="exmpl2"></ul>
+<h1>Example 3</h2>
+<ul id="exmpl3"></ul>
+<h1>Example 4</h2>
+<div id="ape_area">
+	<script id="apeTpl" type="text/template">
+	<ul id="exmpl4">
+	{{#apes}}
+	<li>The {{name}} ({{species}}) is funny.</li>
+	{{/apes}}
+	</ul>
+	</script>
+</div>
+<script src="mustache.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+	var request4 = new XMLHttpRequest();
+	request4.open('GET', 'apes.json', true);
+	request4.onreadystatechange = function() {
+  	if (request4.readyState != 4)  { return; }
+  	var data4 = JSON.parse(request4.responseText);
+  	var templApe4 = document.getElementById('apeTpl').innerHTML;
+  	var output4 = Mustache.render(templApe4,data4);
+  	document.getElementById('ape_area').innerHTML = output4;
+	};
+	request4.send();	
+	// JSON
+	var request3 = new XMLHttpRequest();
+	request3.open('GET', 'apes.json', true);
+	request3.onreadystatechange = function () {
+  	if (request3.readyState != 4)  { return; }
+  	var data3 = JSON.parse(request3.responseText);
+  	var templApe3 = '{{#apes}}<li>The {{name}} is funny.</li>{{/apes}}';
+  	var output3 = Mustache.render(templApe3,data3);
+		document.getElementById('exmpl3').innerHTML = output3;
+	};
+	request3.send();
+	// SECTIONS
+	var exmpl2 = {
+		'apes' : [
+			{'name':'Bonobo'},
+			{'name':'Chimpanzee'},
+			{'name':'Gorilla'},
+			{'name':'OrangEtan'}
+		]
+	}
+	var templApe2 = '{{#apes}}<li>The {{name}} is funny.</li>{{/apes}}';
+	var output2 = Mustache.render(templApe2,exmpl2);
+	document.getElementById('exmpl2').innerHTML = output2;
+	// SIMPLE
+	var exmpl1 = {
+		name : 'Bonobo'
+	}
+	var output1 = Mustache.render('The {{name}} is funny.', exmpl1);
+	document.getElementById('exmpl1').textContent = output1;
+}, false);
+</script>
+</body>
+</html>

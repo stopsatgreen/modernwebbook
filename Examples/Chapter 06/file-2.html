@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width">
+<meta charset="utf-8">
+<title></title>
+<style>
+html, body { height: 100%; width: 100%; }
+body { margin: 0; }
+</style>
+</head>
+<body>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+	var target = document.body;
+	target.addEventListener('dragover', function (e) {
+		e.preventDefault();
+	}, false);
+	target.addEventListener('drop', function (e) {
+		e.preventDefault();
+		var files = e.dataTransfer.files[0],
+				reader = new FileReader();
+		reader.addEventListener('load', function (evt) {
+			console.log(evt.target.result);
+			var img = document.createElement('img');
+			img.src = evt.target.result;
+			target.appendChild(img);
+		}, false);
+		reader.addEventListener('error', function (evt) {
+			console.log(evt.target.error.code);
+		}, false);
+		reader.readAsDataURL(files);
+	}, false);
+}, false);
+</script>
+</body>
+</html>

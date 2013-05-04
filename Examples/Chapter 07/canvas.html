@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width">
+<meta charset="utf-8">
+<title></title>
+<style>
+canvas { border: 1px solid green; }
+</style>
+</head>
+<body>
+<canvas height="400" width="800"></canvas>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+	var el = document.querySelector('canvas');
+		if (el && el.getContext) {
+			var context = el.getContext('2d');
+		if (context) {
+		/* Example 1 */
+			context.fillRect(20,20,120,120);
+		/* Example 2 */
+			context.fillStyle = '#ff0000';
+			context.shadowOffsetX = 3;
+			context.shadowOffsetY = 3;
+			context.shadowBlur = 3;
+			context.shadowColor = 'rgba(0,0,0,0.5)';
+			context.fillRect(200,80,160,160);
+		/* Example 3 */
+			context.arc(360,240,160,0,Math.PI*2,false);
+			context.stroke();
+		}
+	}
+}, false);
+</script>
+</body>
+</html>

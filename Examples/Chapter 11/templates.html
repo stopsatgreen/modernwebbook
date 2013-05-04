@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title></title>
+<link rel="stylesheet" href="../../bootstrap/css/bootstrap.css">
+<style>body { padding: 1em; }</style>
+</head>
+<body>
+	<template id="foo">
+		<h2>Gorilla Beringei</h2>
+		<p>A species of the genus Gorilla and the largest living primate.</p>
+	</template>
+	<div id="bar">
+		<h1>Eastern Gorilla</h1>
+	</div>
+	<script>
+	document.addEventListener('DOMContentLoaded', function () {
+		var t = document.getElementById('foo'),
+			a = document.getElementById('bar'),
+			clone = t.content.cloneNode(true);
+			console.log(clone);
+			a.appendChild(clone);
+	}, false);
+	</script>
+</body>
+</html>

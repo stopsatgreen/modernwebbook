@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+<style>
+body { padding: 1em; }
+#grid {
+	display: -ms-grid;
+	-ms-grid-columns: 1fr 1fr 1fr;
+	-ms-grid-rows: 1fr;
+	height: 300px;
+	margin: 0 auto;
+	outline: 1px solid #999;
+	width: 600px;
+}
+[class^='child'] {
+	background-color: #ddd;
+	overflow: hidden;
+	padding: 1em;
+}
+.child1 {
+	-ms-grid-column: 1;
+	-ms-grid-row-align: end;
+}
+.child2 {
+	background-color: #aaa;
+	-ms-grid-column: 2;
+	-ms-grid-row-align: stretch;
+}
+.child3 {
+	-ms-grid-column: 3;
+	-ms-grid-row-align: center;
+}
+p {
+	font-size: 1.2em;
+	margin: 0;
+}
+</style>
+</head>
+<body>
+<div id="grid">
+	<div class="child1">
+		<p>In primitive times people saw each other rarely and had much less to do with each other. The human element was then not the chief problem.</p>
+	</div>
+	<div class="child2">
+		<p>In primitive times people saw each other rarely and had much less to do with each other. The human element was then not the chief problem.</p>
+	</div>
+	<div class="child3">
+		<p>In primitive times people saw each other rarely and had much less to do with each other. The human element was then not the chief problem.</p>
+	</div>
+</div>
+</body>
+</html>

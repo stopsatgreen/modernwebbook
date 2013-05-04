@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width">
+<meta charset="utf-8">
+<title></title>
+<link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+<style>
+	body { margin: 1em; }
+	label { display: block; }
+</style>
+</head>
+<body>
+<label for="progress">Progress</label>
+<progress id="progress" value="0.75">0.75</progress>
+<label for="meter">Meter</label>
+<meter id="meter" high="0.8" low="0.2" value="0.1">0.75</meter>
+<label for="output">Output</label>
+<input type="range" id="range">
+<br>
+<output id="output" for="range"></output>
+<script>
+window.addEventListener('DOMContentLoaded', function () {
+	var range = document.getElementById('range'),
+			output = document.getElementById('output');
+	output.defaultValue = 50;
+	range.addEventListener('change', function (e) {
+		var newValue = e.currentTarget.value;
+		output.value = newValue;
+	}, false);
+}, false);
+</script>
+</body>
+</html>

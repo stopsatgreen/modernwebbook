@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width">
+<meta charset="utf-8">
+<title></title>
+<link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+<style>
+  body { padding: 1em; text-align: center; }
+</style>
+</head>
+<body>
+  <h1>Getting Co-ordinates...</h1>
+  <button>Stop</button>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  'use strict';
+  var target = document.querySelector('h1'),
+  		endWatch = document.querySelector('button'),
+  		geo = navigator.geolocation,
+  		watchID = geo.watchPosition(function (where) {
+				target.textContent = where.coords.latitude + ',' + where.coords.longitude;
+				console.log(where.timestamp);
+			});
+	endWatch.addEventListener('click', function (e) {
+		e.preventDefault();
+		geo.clearWatch(watchID);
+		alert('Stopped.');
+		console.timeStamp();
+	}, false);
+},false);
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width">
+<meta charset="utf-8">
+<title></title>
+<style>
+	body { margin: 1em; }
+	video { display: block; margin-bottom: 0.25em; }
+</style>
+</head>
+<body>
+<video id="video">
+	<source src="../assets/bbb.webm">
+	<source src="../assets/bbb.theora.ogg">
+	<source src="../assets/bbb.mp4">
+</video>
+	<button id="play-pause">Play/Pause</button>
+	<progress id="seek" value="0"></progress>
+<script>
+window.addEventListener('DOMContentLoaded', function () {
+	var playPause = document.getElementById('play-pause'),
+			progress = document.querySelector('progress'),
+			video = document.querySelector('video');
+	video.addEventListener('loadedmetadata', function () {
+		video.addEventListener('timeupdate', function () {
+			progress.value = video.currentTime / video.duration;
+		}, false); 
+	}, false);
+	playPause.addEventListener('click', function () {
+	  if (video.paused) {
+	    video.play();
+	  } else {
+	    video.pause();
+	  }
+	}, false);
+}, false);
+</script>
+</body>
+</html>

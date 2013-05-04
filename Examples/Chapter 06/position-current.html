@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width">
+<meta charset="utf-8">
+<title></title>
+<link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+<style>
+  body { padding: 1em; }
+  h1 { text-align: center; }
+</style>
+</head>
+<body>
+  <h1>Getting Co-ordinates...</h1>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  'use strict';
+  var target = document.querySelector('h1');
+	navigator.geolocation.getCurrentPosition(function(where) {
+		target.textContent = where.coords.latitude + ',' + where.coords.longitude;
+	});
+},false);
+</script>
+</body>
+</html>
