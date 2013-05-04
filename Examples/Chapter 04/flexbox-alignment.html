@@ -2,27 +2,41 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title></title>
+<title>Flexbox alignment - Chapter 04</title>
 <style>
 body { font-size: 10px; }
 .flex {
 	border: 1px solid green;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	height: 100px;
 	margin: 0 auto;
 	width: 500px;
 }
 .flex-a {
+	-ms-flex-align: stretch;
+	-webkit-align-items: stretch;
 	align-items: stretch;
+	-ms-flex-pack: justify;
+	-webkit-justify-content: space-around;
 	justify-content: space-around;
 }
 .flex-b {
+	-ms-flex-align: end;
+	-webkit-align-items: flex-end;
 	align-items: flex-end;
-	justify-content: space-around;
 	border-width: 0 1px;
+	-ms-flex-pack: justify;
+	-webkit-justify-content: space-around;
+	justify-content: space-around;
 }
 .flex-c {
+	-ms-flex-align: center;
+	-webkit-align-items: center;
 	align-items: center;
+	-ms-flex-pack: justify;
+	-webkit-justify-content: space-around;
 	justify-content: space-around;
 }
 .flex div {
