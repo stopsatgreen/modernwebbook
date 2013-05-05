@@ -1,1 +1,41 @@
 body { margin: 1em; }
+
+/* CHAPTER 06 */
+
+.battery-holder {
+  border: 1px solid #999;
+  margin: 0 auto;
+  max-width: 400px;
+  padding: 1em;
+  text-align: center;
+  width: 50%;
+}
+
+.battery-holder meter { width: 100%; }
+
+.battery-holder h2 { margin-bottom: 0; }
+
+.target-region {
+	height: 200px;
+	outline: 5px dotted gray;
+	width: 200px;
+}
+
+.target-region img {
+	height: auto;
+	width: 100%;
+}
+
+.drag-drop-demo {
+	display: inline-block;
+	margin-right: 1em;
+	vertical-align: bottom;
+}
+
+#drag-drop-img,
+#drag-drop-txt { cursor: move; }
+
+#drag-drop-img {
+	height: auto;
+	width: 100px;
+}

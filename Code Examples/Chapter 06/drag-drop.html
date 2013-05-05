@@ -1,20 +1,18 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<meta name="viewport" content="width=device-width">
-<meta charset="utf-8">
-<title></title>
-<style>
-#target { height: 200px; outline: 5px dotted gray; width: 200px; }
-#target img { height: auto; width: 100%; }
-</style>
+	<meta name="viewport" content="width=device-width">
+	<meta charset="utf-8">
+	<title>Drag &amp; Drop API - Chapter 06</title>
+	<link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
-	<div id="target"></div>
-	<img id="img" src="../assets/dino.jpg" height="100">
+	<div id="drag-drop-target" class="target-region drag-drop-demo"></div>
+	<img id="drag-drop-img" class="drag-drop-demo" src="../assets/gorilla-400.jpg" height="100">
 	<script>
 document.addEventListener('DOMContentLoaded', function () {
-	var target = document.getElementById('target');
+	var target = document.getElementById('drag-drop-target');
 	target.addEventListener('dragover', function (e) {
 		e.stopPropagation();
 		e.preventDefault();
@@ -25,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		var smth = document.createElement('img');
 		smth.setAttribute('src', e.dataTransfer.getData('URL'));
 		e.currentTarget.appendChild(smth);
-		document.querySelector('body').removeChild(document.getElementById('img'));
+		document.querySelector('body').removeChild(document.getElementById('drag-drop-img'));
 	}, false);
 }, false);
 </script>

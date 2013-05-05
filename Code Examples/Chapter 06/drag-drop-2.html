@@ -1,23 +1,21 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<meta name="viewport" content="width=device-width">
-<meta charset="utf-8">
-<title></title>
-<style>
-#target { height: 200px; outline: 5px dotted gray; width: 200px; }
-#target img { height: auto; width: 100%; }
-</style>
+	<meta name="viewport" content="width=device-width">
+	<meta charset="utf-8">
+	<title>Drag &amp; Drop API [2] - Chapter 06</title>
+	<link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
-	<div id="target"></div>
-	<img id="img" src="../assets/dino.jpg" height="100">
-	<div id="txt" draggable="true">Draggable</div>
+	<div id="drag-drop-target" class="target-region drag-drop-demo"></div>
+	<img id="drag-drop-img" class="drag-drop-demo" src="../assets/gorilla-400.jpg" height="100">
+	<p id="drag-drop-txt" class="drag-drop-demo" draggable="true">Draggable text</p>
 	<!--a href="http://example.com">Linky</a-->
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-	var target = document.getElementById('target'),
-			txt = document.getElementById('txt');
+	var target = document.getElementById('drag-drop-target'),
+			txt = document.getElementById('drag-drop-txt');
 	txt.addEventListener('dragstart', function (e) {
 		e.dataTransfer.setData('text/plain', e.currentTarget.textContent);
 	}, false);

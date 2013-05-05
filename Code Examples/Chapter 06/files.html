@@ -1,19 +1,18 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<meta name="viewport" content="width=device-width">
-<meta charset="utf-8">
-<title></title>
-<style>
-#target { height: 200px; outline: 5px dotted gray; width: 200px; }
-</style>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Files API - Chapter 06</title>
+	<link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
-	<ul id="target"></ul>
+	<ul id="files-target" class="target-region"></ul>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
 	'use strict';
-	var target = document.getElementById('target');
+	var target = document.getElementById('files-target');
 	target.addEventListener('dragover', function (e) {
 		e.stopPropagation();
 		e.preventDefault();
