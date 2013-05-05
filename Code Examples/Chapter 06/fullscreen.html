@@ -12,15 +12,16 @@
 	<img id="target" src="../assets/dino.jpg">
 <script>
 document.addEventListener('DOMContentLoaded',function(){
+	'use strict';
 	var trigger = document.getElementById('trigger'),
 			target = document.getElementById('target');
 	trigger.addEventListener('click', function () {
 		if (target.requestFullscreen) {
-		  target.requestFullscreen();
+			target.requestFullscreen();
 		} else if (target.mozRequestFullScreen) {
-		  target.mozRequestFullScreen();
+			target.mozRequestFullScreen();
 		} else if (target.webkitRequestFullscreen) {
-		  target.webkitRequestFullscreen();
+			target.webkitRequestFullscreen();
 		}
 	}, false);
 	document.addEventListener('mozfullscreenchange', function () {

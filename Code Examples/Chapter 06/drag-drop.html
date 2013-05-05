@@ -12,6 +12,7 @@
 	<img id="drag-drop-img" class="drag-drop-demo" src="../assets/gorilla-400.jpg" height="100">
 	<script>
 document.addEventListener('DOMContentLoaded', function () {
+	'use strict';
 	var target = document.getElementById('drag-drop-target');
 	target.addEventListener('dragover', function (e) {
 		e.stopPropagation();
