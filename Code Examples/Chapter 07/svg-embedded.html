@@ -1,15 +1,17 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<meta name="viewport" content="width=device-width">
-<meta charset="utf-8">
-<title></title>
-<style>
-body { margin: 1em; }
-svg { border: 1px solid silver; }
-rect, text { fill: white; }
-circle { fill: black; }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>SVG Embedded - Chapter 07</title>
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="../assets/style.css">
+  <style>
+    body { margin: 1em; }
+    svg { border: 1px solid silver; }
+    rect, text { fill: white; }
+    circle { fill: black; }
+  </style>
 </head>
 <body>
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" height="200" width="300">
@@ -21,10 +23,11 @@ circle { fill: black; }
 <object data="../assets/svg.svg"></object>
 <script>
 document.addEventListener('DOMContentLoaded',function() {
-	var rects = document.querySelectorAll('svg');
+  'use strict';
+	var rects = document.querySelectorAll('svg'),
+      embed = document.querySelector('embed').getSVGDocument();
 	console.log(rects.length);
-	var embed = document.querySelector('embed').getSVGDocument();
-	console.log(embed,embed.childNodes.length);
+  console.log(embed,embed.childNodes.length);
 },false);
 </script>
 </body>
