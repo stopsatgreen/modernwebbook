@@ -1,9 +1,11 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<meta name="viewport" content="width=device-width">
-<meta charset="utf-8">
-<title></title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Orientation API - Chapter 06</title>
+	<link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
 	<ul>
@@ -12,7 +14,8 @@
 	<li>Z: <span id="z">Null</span></li>
 	</ul>
 <script>
-document.addEventListener('DOMContentLoaded',function(){
+document.addEventListener('DOMContentLoaded',function () {
+	'use strict';
 	var x = document.getElementById('x'),
 			y = document.getElementById('y'),
 			z = document.getElementById('z');

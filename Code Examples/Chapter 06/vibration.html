@@ -1,14 +1,17 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<meta name="viewport" content="width=device-width">
-<meta charset="utf-8">
-<title></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Vibration API - Chapter 06</title>
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
 	<button id="trigger">Vibe me, bro!</button>
 <script>
 document.addEventListener('DOMContentLoaded',function(){
+  'use strict';
 	var trigger = document.getElementById('trigger');
 	trigger.addEventListener('touchstart', function () {
 		window.alert('Vibed');

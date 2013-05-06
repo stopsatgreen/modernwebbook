@@ -1,11 +1,19 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<meta name="viewport" content="width=device-width">
-<meta charset="utf-8">
-<title></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Web Storage API - Chapter 06</title>
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="../assets/style.css">
+  <style>
+  li span { cursor: pointer; }
+  </style>
 </head>
 <body>
+	<div class="alert">
+		<b>Note:</b> This demo logs in the console, and for best results you should use debug tools that allow you to view local storage.
+	</div>
 	<ul>
 		<li data-ape="chimp"><span class="ape">Chimpanzee</span> <span class="del">X</span></li>
 		<li data-ape="gorilla"><span class="ape">Gorilla</span> <span class="del">X</span></li>
@@ -13,23 +21,30 @@
 	</ul>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-	var i,
-			apes = document.querySelectorAll('li'),
-			apesTotal = apes.length;
-	for (i = 0; i < apesTotal; i++) {
-		apes[i].querySelector('.ape').addEventListener('click', function (e) {
+	'use strict';
+	function _setItem (el) {
+		el.querySelector('.ape').addEventListener('click', function (e) {
 			e.preventDefault();
-			var apeKey = e.currentTarget.parentElement.dataset['ape'],
+			var apeKey = e.currentTarget.parentElement.dataset.ape,
 					apeVal = e.currentTarget.firstChild.textContent;
 			console.log('Set',apeKey);
 			sessionStorage.setItem(apeKey,apeVal);
 		}, false);
-		apes[i].querySelector('.del').addEventListener('click', function (e) {
+	}
+	function _removeItem (el) {
+		el.querySelector('.del').addEventListener('click', function (e) {
 			e.preventDefault();
-			var apeKey = e.currentTarget.parentElement.dataset['ape'];
+			var apeKey = e.currentTarget.parentElement.dataset.ape;
 			console.log('Remove',apeKey);
 			sessionStorage.removeItem(apeKey);
 		}, false);
+	}
+	var i,
+			apes = document.querySelectorAll('li'),
+			apesTotal = apes.length;
+	for (i = 0; i < apesTotal; i++) {
+		_setItem(apes[i]);
+		_removeItem(apes[i]);
 	}
 }, false);
 </script>

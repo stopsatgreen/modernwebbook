@@ -1,11 +1,19 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<meta name="viewport" content="width=device-width">
-<meta charset="utf-8">
-<title></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Web Storage API [2] - Chapter 06</title>
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="../assets/style.css">
+  <style>
+  li { cursor: pointer; }
+  </style>
 </head>
 <body>
+	<div class="alert">
+		<b>Note:</b> In order to run this demo you'll need to open this page in two tabs at once. The result is logged in the console of the other tab.
+	</div>
 	<ul>
 		<li>Chimpanzee</li>
 		<li>Gorilla</li>
@@ -13,15 +21,19 @@
 	</ul>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-	var i,
-			apes = document.querySelectorAll('li'),
-			apesTotal = apes.length;
-	for (i = 0; i < apesTotal; i++) {
-		apes[i].addEventListener('click', function (e) {
+	'use strict';
+	function _setItem(el) {
+		el.addEventListener('click', function (e) {
 			e.preventDefault();
 			var apeVal = e.currentTarget.firstChild.textContent;
 			localStorage.setItem('ape',apeVal);
 		}, false);
+	}
+	var i,
+			apes = document.querySelectorAll('li'),
+			apesTotal = apes.length;
+	for (i = 0; i < apesTotal; i++) {
+		_setItem(apes[i]);
 	}
 	window.addEventListener('storage', function (e) {
 		var msg = 'Key ' + e.key + ' changed from ' + e.oldValue + ' to ' + e.newValue;
