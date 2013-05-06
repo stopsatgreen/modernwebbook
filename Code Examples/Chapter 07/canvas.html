@@ -1,17 +1,17 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<meta name="viewport" content="width=device-width">
-<meta charset="utf-8">
-<title></title>
-<style>
-canvas { border: 1px solid green; }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Canvas API - Chapter 06</title>
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
-<canvas height="400" width="800"></canvas>
+<canvas height="400" width="800" class="canvas-demo"></canvas>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
+	'use strict';
 	var el = document.querySelector('canvas');
 		if (el && el.getContext) {
 			var context = el.getContext('2d');

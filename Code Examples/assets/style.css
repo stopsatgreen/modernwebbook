@@ -39,3 +39,7 @@ body { margin: 1em; }
 	height: auto;
 	width: 100px;
 }
+
+/* CHAPTER 07 */
+
+.canvas-demo { border: 1px solid green; }
