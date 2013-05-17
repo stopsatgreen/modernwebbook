@@ -1,42 +1,48 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<meta name="viewport" content="width=device-width">
-<meta charset="utf-8">
-<title></title>
-<style>
-	body { margin: 1em; }
-	video { display: block; margin-bottom: 0.25em; }
-	#controls {
-		-webkit-align-items: center;
-		align-items: center;
-		display: -webkit-flex;
-		display: flex;
-		-webkit-justify-content: center;
-		justify-content: center;
-		margin-top: 0.25em;
-		width: 360px;
-	}
-	#controls > * { 
-		-webkit-flex: 1 1 33%;
-		flex: 1 1 33%;
-		vertical-align: middle;
-	}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Media Volume Control - Chapter 09</title>
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="../assets/style.css">
+	<style>
+		#controls {
+			-webkit-align-items: center;
+			align-items: center;
+			display: -webkit-flex;
+			display: flex;
+			-webkit-justify-content: center;
+			justify-content: center;
+			margin-top: 0.25em;
+			width: 360px;
+		}
+		#controls > * { 
+			-webkit-flex: 1 1 33%;
+			flex: 1 1 33%;
+			vertical-align: middle;
+		}
+	</style>
 </head>
 <body>
-<video id="video">
-	<source src="../assets/bbb.webm">
-	<source src="../assets/bbb.theora.ogg">
-	<source src="../assets/bbb.mp4">
-</video>
-<div id="controls">
-	<button id="play-pause">Play/Pause</button>
-	<progress id="seek" value="0"></progress>
-	<input id="volume" type="range">
+<div class="alert">
+	In Firefox, the videos must be loaded from a web server to fire the <code>loadedmetadata</code> event
+</div>
+<div class="video-controls">
+	<video id="video">
+		<source src="../assets/bbb.webm">
+		<source src="../assets/bbb.theora.ogg">
+		<source src="../assets/bbb.mp4">
+	</video>
+	<div id="controls">
+		<button id="play-pause">Play/Pause</button>
+		<progress id="seek" value="0"></progress>
+		<input id="volume" type="range">
+	</div>
 </div>
 <script>
 window.addEventListener('DOMContentLoaded', function () {
+	'use strict';
 	var playPause = document.getElementById('play-pause'),
 			progress = document.querySelector('progress'),
 			video = document.querySelector('video'),

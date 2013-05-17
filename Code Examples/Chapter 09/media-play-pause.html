@@ -1,23 +1,30 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<meta name="viewport" content="width=device-width">
-<meta charset="utf-8">
-<title></title>
-<style>
-	body { margin: 1em; }
-	video { display: block; margin-bottom: 0.25em; }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Media Play/Pause - Chapter 09</title>
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="../assets/style.css">
+	<style>
+		video {
+			display: block;
+			margin-bottom: 0.25em;
+		}
+	</style>
 </head>
 <body>
-<video id="video">
-	<source src="../assets/bbb.theora.ogg">
-	<source src="../assets/bbb.webm">
-	<source src="../assets/bbb.mp4">
-</video>
-<button id="play-pause">Play/Pause</button>
+<div class="video-controls">
+	<video id="video">
+		<source src="../assets/bbb.theora.ogg">
+		<source src="../assets/bbb.webm">
+		<source src="../assets/bbb.mp4">
+	</video>
+	<button id="play-pause">Play/Pause</button>
+</div>
 <script>
 window.addEventListener('DOMContentLoaded', function () {
+	'use strict';
 	var playPause = document.getElementById('play-pause'),
 			video = document.getElementById('video');
 	playPause.addEventListener('click', function () {

@@ -52,3 +52,10 @@ body { margin: 1em; }
   display: inline-block;
   margin-left: 0.5em;
 }
+
+/* CHAPTER 09 */
+
+.video-controls video {
+  display: block;
+  margin-bottom: 0.25em;
+}

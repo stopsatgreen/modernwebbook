@@ -1,29 +1,35 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<meta name="viewport" content="width=device-width">
-<meta charset="utf-8">
-<title></title>
-<style>
-	body { margin: 1em; }
-	video { display: block; margin-bottom: 0.25em; }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Media Progress Bar - Chapter 09</title>
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
-<video id="video">
-	<source src="../assets/bbb.webm">
-	<source src="../assets/bbb.theora.ogg">
-	<source src="../assets/bbb.mp4">
-</video>
-	<button id="play-pause">Play/Pause</button>
-	<progress id="seek" value="0"></progress>
+<div class="alert">
+	In Firefox, the videos must be loaded from a web server to fire the <code>loadedmetadata</code> event
+</div>
+<div class="video-controls">
+	<video id="video">
+		<source src="../assets/bbb.webm">
+		<source src="../assets/bbb.theora.ogg">
+		<source src="../assets/bbb.mp4">
+	</video>
+		<button id="play-pause">Play/Pause</button>
+		<progress id="seek" value="0"></progress>
+</div>
 <script>
 window.addEventListener('DOMContentLoaded', function () {
+	'use strict';
 	var playPause = document.getElementById('play-pause'),
 			progress = document.querySelector('progress'),
 			video = document.querySelector('video');
 	video.addEventListener('loadedmetadata', function () {
+		console.log('loaded');
 		video.addEventListener('timeupdate', function () {
+			console.log('progress');
 			progress.value = video.currentTime / video.duration;
 		}, false); 
 	}, false);
