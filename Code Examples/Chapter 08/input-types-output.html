@@ -1,26 +1,29 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<meta name="viewport" content="width=device-width">
-<meta charset="utf-8">
-<title></title>
-<link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
-<style>
-	body { margin: 1em; }
-	label { display: block; }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Output Types - Chapter 08</title>
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
-<label for="progress">Progress</label>
-<progress id="progress" value="0.75">0.75</progress>
-<label for="meter">Meter</label>
-<meter id="meter" high="0.8" low="0.2" value="0.1">0.75</meter>
-<label for="output">Output</label>
-<input type="range" id="range">
-<br>
-<output id="output" for="range"></output>
+<form class="chapter-08">
+<fieldset>
+  <legend>Output Types</legend>
+  <label for="progress">Progress</label>
+  <progress id="progress" value="0.75">0.75</progress>
+  <label for="meter">Meter</label>
+  <meter id="meter" high="0.8" low="0.2" value="0.1">0.75</meter>
+  <label for="output">Output</label>
+  <input type="range" id="range">
+  <br>
+  <output id="output" for="range"></output>
+</fieldset>
+</form>
 <script>
 window.addEventListener('DOMContentLoaded', function () {
+  'use strict';
 	var range = document.getElementById('range'),
 			output = document.getElementById('output');
 	output.defaultValue = 50;

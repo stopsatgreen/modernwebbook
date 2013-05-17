@@ -1,21 +1,16 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<meta name="viewport" content="width=device-width">
-<meta charset="utf-8">
-<title></title>
-<link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
-<style>
-	body { margin: 1em; }
-	label { display: block; }
-	input { margin-bottom: 1em; }
-	input + p { display: inline-block; margin-left: 0.5em; }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Validity State - Chapter 08</title>
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
-<form>
+<form class="chapter-08">
 	<fieldset>
-		<legend>Constraint Validation</legend>
+		<legend>Validity State</legend>
 		<label for="email">Email</label>
 		<input type="email" id="email" placeholder="Email" autofocus required><p></p>
 		<label for="tel">Telephone</label>
@@ -25,6 +20,7 @@
 </form>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
+	'use strict';
 	var inputField = document.querySelectorAll('input'),
 			iLen = inputField.length,
 			i;

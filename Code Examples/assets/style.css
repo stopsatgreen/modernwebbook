@@ -43,3 +43,12 @@ body { margin: 1em; }
 /* CHAPTER 07 */
 
 .canvas-demo { border: 1px solid green; }
+
+/* CHAPTER 08 */
+
+.chapter-08 label { display: block; }
+
+.chapter-08 input + p {
+  display: inline-block;
+  margin-left: 0.5em;
+}

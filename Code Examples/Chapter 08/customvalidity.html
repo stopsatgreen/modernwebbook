@@ -1,35 +1,29 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<meta name="viewport" content="width=device-width">
-<meta charset="utf-8">
-<title></title>
-<link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
-<style>
-	body { margin: 1em; }
-	label { display: block; margin-bottom: 0; }
-	input + p { display: inline-block; }
-</style>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Custom Validity - Chapter 08</title>
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
-<form>
+<form class="chapter-08">
 	<fieldset>
 		<legend>Constraint Validation</legend>
 		<label for="tel-home">Home Telephone</label>
-		<input type="tel" id="tel-home" placeholder="Numbers only" pattern="\d*" required><p></p>
+		<input type="tel" id="tel-home" placeholder="Numbers only" pattern="\d*" required>
 		<label for="tel-work">Work Telephone</label>
-		<input type="tel" id="tel-work" placeholder="Numbers only" pattern="\d*"><p></p>
+		<input type="tel" id="tel-work" placeholder="Numbers only" pattern="\d*">
 	</fieldset>
 	<button type="submit">Submit</button>
 </form>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-	console.log(1);
-	var form = document.querySelector('form'),
-			telHome = document.getElementById('tel-home'),
+	'use strict';
+	var telHome = document.getElementById('tel-home'),
 			telWork = document.getElementById('tel-work');
 	telWork.addEventListener('input', function (e) {
-		//e.preventDefault();
 		if (e.currentTarget.value === telHome.value) {
 			telWork.setCustomValidity('Must be different');
 		} else {
