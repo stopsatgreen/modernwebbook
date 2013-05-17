@@ -2,11 +2,13 @@
 <html>
 <head>
 	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
 	<title>Device Pixel Ratio - Chapter 03</title>
 </head>
 <body>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+  'use strict';
 	var msg, dpr = window.devicePixelRatio;
 	if (dpr) {
 		msg = 'devicePixelRatio: ' + dpr;
