@@ -16,14 +16,17 @@ document.addEventListener('DOMContentLoaded',function(){
 	var trigger = document.getElementById('trigger'),
 			target = document.getElementById('target');
 	trigger.addEventListener('click', function () {
-		if (target.requestFullscreen) {
-			target.requestFullscreen();
-		} else if (target.mozRequestFullScreen) {
-			target.mozRequestFullScreen();
-		} else if (target.webkitRequestFullscreen) {
-			target.webkitRequestFullscreen();
-		}
+		var canFull = target.goFullscreen = (
+			target.requestFullscreen ||
+			target.mozRequestFullScreen ||
+			target.webkitRequestFullscreen ||
+			target.msRequestFullscreen
+		)
+		if (canFull) {
+			target.goFullscreen();
+		};
 	}, false);
+	// Firefox
 	document.addEventListener('mozfullscreenchange', function () {
 		if (document.mozFullScreenElement !== null) {
 			document.addEventListener('keydown', function (e) {
@@ -33,6 +36,36 @@ document.addEventListener('DOMContentLoaded',function(){
 			}, false);
 		}
 	}, false);
+	// Safari (desktop) and Chrome
+	document.addEventListener('webkitfullscreenchange', function (e) {
+		if (document.webkitFullscreenElement !== null) {
+			document.addEventListener('keydown', function (e) {
+				if (e.keyCode === 13) {
+					document.webkitExitFullscreen();
+				}
+			});
+		}
+	});
+	// Safari (iOS)
+	document.addEventListener('webkitbeginfullscreen', function (e) {
+		if (document.webkitFullscreenElement !== null) {
+			document.addEventListener('keydown', function (e) {
+				if (e.keyCode === 13) {
+					document.webkitExitFullscreen();
+				}
+			});
+		}
+	});
+	// IE11+
+	document.addEventListener('MSFullscreenChange', function (e) {
+		if (document.msFullscreenElement !== null) {
+			document.addEventListener('keydown', function (e) {
+				if (e.keyCode === 13) {
+					document.msExitFullscreen();
+				}
+			});
+		}
+	});
 },false);
 </script>
 </body>
