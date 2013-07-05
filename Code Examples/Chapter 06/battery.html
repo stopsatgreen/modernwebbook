@@ -17,9 +17,10 @@ document.addEventListener('DOMContentLoaded',function(){
   'use strict';
 	var el = document.getElementById('status'),
       meter = document.querySelector('meter'),
-			battery = navigator.battery || navigator.webkitBattery,
+			battery = navigator.battery || navigator.mozBattery || navigator.webkitBattery;
+  if (!battery) { return false; }
 // Check charge status and update h2
-      status = (battery.charging) ? 'Charging' : 'Discharging';
+  var status = (battery.charging) ? 'Charging' : 'Discharging';
   el.textContent = status;
 // Get charge level and update meter
   meter.value = battery.level;

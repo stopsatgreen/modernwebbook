@@ -12,11 +12,12 @@
 <script>
 document.addEventListener('DOMContentLoaded',function () {
 	'use strict';
-	navigator.connection = (
+	var hasConnect = navigator.connection = (
 		navigator.connection ||
 		navigator.mozConnection ||
 		navigator.webkitConnection
 	);
+	if (!hasConnect) { return false; }
 	var status,
 			target = document.querySelector('h1'),
 			showStatus = function () {
