@@ -6,29 +6,33 @@
 	<title>Object position - Chapter 03</title>
   <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
 	<style>
-	.holder { margin: 0 auto; }
+	.holder {
+		margin: 0 auto;
+		max-width: 800px;
+	}
 	.holder div {
 		background-color: red;
 		float: left;
-		height: 250px;
+		height: 350px;
 		overflow: hidden;
-		width: 32%;
+		width: 21%;
 	}
 	div.middle { margin: 0 2%; }
+	div div:last-of-type { width: 50%; }
 	img {
 		height: 100%;
 		width: 100%;
-		-o-object-fit: contain;
+		object-fit: contain;
 	}
-	#obj-1 { -o-object-position: center top; }
-	#obj-2 { -o-object-position: center bottom; }
-	#obj-3 { -o-object-position: right; }
+	#obj-1 { object-position: center top; }
+	#obj-2 { object-position: center bottom; }
+	#obj-3 { object-position: right; }
 	</style>
 </head>
 <body>
 	<div class="alert">
-    <strong>Note:</strong> This currently only works in deprecated older versions of Opera
-  </div>
+		<strong>Note:</strong> This example differs from the illustration shown in the book
+	</div>
 	<div class="holder">
 		<div>
 			<img src="../assets/gorilla-400.jpg" id="obj-1">
