@@ -15,16 +15,25 @@
 <script>
 document.addEventListener('DOMContentLoaded',function(){
   'use strict';
-	var el = document.getElementById('status'),
-      meter = document.querySelector('meter'),
-			battery = navigator.battery || navigator.mozBattery || navigator.webkitBattery;
-  if (!battery) { return false; }
+  var el = document.getElementById('status'),
+      meter = document.querySelector('meter');
+  function batteryLevel (battery) {
 // Check charge status and update h2
-  var status = (battery.charging) ? 'Charging' : 'Discharging';
-  el.textContent = status;
+    var status = (battery.charging) ? 'Charging' : 'Discharging';
+    el.textContent = status;
 // Get charge level and update meter
-  meter.value = battery.level;
-  meter.textContent = battery.level;
+    meter.value = battery.level;
+    meter.textContent = battery.level;
+  }
+// Test for old or new battery status
+  if (navigator.battery) {
+    batteryLevel(navigator.battery);
+  } else if (navigator.getBattery) {
+    navigator.getBattery().then(function (newBattery){
+      batteryLevel(newBattery);
+    });
+  }
+// end
 },false);
 </script>
 </body>

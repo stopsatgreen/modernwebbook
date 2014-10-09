@@ -17,26 +17,40 @@ document.addEventListener('DOMContentLoaded',function() {
 	'use strict';
 	var status,
 			el = document.getElementById('status'),
-      meter = document.querySelector('meter'),
-			battery = navigator.battery || navigator.mozBattery || navigator.webkitBattery;
-	if (!battery) { return false; }
+      meter = document.querySelector('meter');
 // Get charge level and update meter
-	var	chargeLevel = function () {
-				meter.value = battery.level;
-				meter.textContent = battery.level;
-			},
+	function chargeLevel (battery) {
+		meter.value = battery.level;
+		meter.textContent = battery.level;
+	}
 // Check charge status and update h2
-			chargeStatus = function () {
-				status = (battery.charging) ? 'Charging' : 'Discharging';
-				el.textContent = status;
-			};
+	function chargeStatus (battery) {
+		status = (battery.charging) ? 'Charging' : 'Discharging';
+		el.textContent = status;
+	}
+// Init
+	function init (battery) {
 // Listen for changes in charging status
-	battery.addEventListener('chargingchange', chargeStatus, false);
+		battery.addEventListener('chargingchange', function () {
+			chargeStatus(battery);
+		}, false);
 // Listen for changes in charge level
-	battery.addEventListener('levelchange', chargeLevel, false);
+		battery.addEventListener('levelchange', function () {
+			chargeLevel(battery);
+		}, false);
 // Run both functions on page load
-	chargeLevel();
-	chargeStatus();
+		chargeLevel(battery);
+		chargeStatus(battery);
+	}
+// Test for old or new battery API
+  if (navigator.battery) {
+  	init(navigator.battery);
+  } else if (navigator.getBattery) {
+  	navigator.getBattery().then(function (newBattery){
+      init(newBattery);
+    });
+  }
+// end
 }, false);
 </script>
 </body>
