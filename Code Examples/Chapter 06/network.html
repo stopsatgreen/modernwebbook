@@ -8,28 +8,29 @@
   <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
-  <h1>Getting Connection...</h1>
+  <ul id="network">
+		<li>Getting Connection...</li>
+	</ul>
 <script>
 document.addEventListener('DOMContentLoaded',function () {
 	'use strict';
-	var hasConnect = navigator.connection = (
-		navigator.connection ||
-		navigator.mozConnection ||
-		navigator.webkitConnection
-	);
-	if (!hasConnect) { return false; }
 	var status,
-			target = document.querySelector('h1'),
-			showStatus = function () {
-				status = navigator.connection.bandwidth + ' MB/s';
-				if (navigator.connection.metered) {
-					status += ' (metered)';
-				}
-				target.textContent = status;
-			};
-	navigator.connection.addEventListener('change', showStatus, false);
-	showStatus();
-},false);
+		target = document.getElementById('network'),
+		connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+	function showStatus () {
+		status = '<li>Type: ' + connection.type + '</li>';
+		status += '<li>Bandwidth: ' + connection.bandwidth + ' MB/s';
+		if (connection.metered) {
+			status += ' (metered)';
+		}
+		status += '</li>';
+		target.innerHTML = status;
+	}
+	if (connection) {
+		connection.addEventListener('change', showStatus);
+		showStatus();
+	}
+});
 </script>
 </body>
 </html>
